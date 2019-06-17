@@ -19,6 +19,7 @@ StatWireframe <- ggproto("StatWireframe", Stat,
                          compute_group = function(data, scales, theta=135, phi=60, xrange=c(0,1), yrange=c(0,1), zrange=c(0,1)) {
 
                            data = data %>%
+                             as.data.frame() %>%
                              mutate(
                                x = rescale(x, from=xrange, to=c(0,1)),
                                y = rescale(y, from=yrange, to=c(0,1)),
